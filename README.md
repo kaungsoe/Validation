@@ -85,7 +85,7 @@ let emailValidation1 = validateNonEmpty("")
     .flatMap(validateEmail)
 ```
 
-And it will print `Required Required` in the console. So by creat another function that only foucus on one job (single responsibility), we gain reusablity, readibility, composibiltity and testablity. 
+And it will print `Required Required` in the console. So by creating another function that only focus on one job (single responsibility), we gain reusablity, readibility, composibiltity and testablity. 
 
 And also let's say you have a use case where a values need to validated by multiple rules, you can continue composing these using `flatMap` without losing the readibility.
 
