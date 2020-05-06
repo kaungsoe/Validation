@@ -1,6 +1,4 @@
 # Validation
-Validation using FP approach in Swift
-
 Validation is a type which is similar to result but it have some extra functionality like accumlating validation error.
 
 # Example 
