@@ -97,3 +97,7 @@ let registerUser = zip(with: RegisterUserRequest.init)(
     emailValidation
 )
 ```
+# Credit
+[Applicative and Swift by Stephen Celis ](https://www.youtube.com/watch?v=Awva79gjoHY&t=1681s)
+
+[Pointfree.co](https://www.pointfree.co)
