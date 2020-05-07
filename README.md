@@ -1,8 +1,8 @@
 # Validation
-Validation is a type which is similar to result but it have some extra functionality like accumlating validation error.
+Validation is a type which is similar to result but it has some extra functionality like accumlating validation errors.
 
 # Example 
-Let's say we have a struct call RegisterUserRequest. We have some values which may be coming from forms or somewhere else, we have to validate these values before we construct RegisterUserRequest. 
+Let's say we have a struct call `RegisterUserRequest`. We have some values which may be coming from forms or somewhere else, we have to validate these values before we construct `RegisterUserRequest`. 
 
 ```swift
 struct RegisterUserRequest {
@@ -88,6 +88,21 @@ let emailValidation1 = validateNonEmpty("")
 And it will print `Required Required` in the console. So by creating another function that only focus on one job (single responsibility), we gain reusablity, readibility, composibiltity and testablity. 
 
 And also let's say you have a use case where a values need to validated by multiple rules, you can continue composing these using `flatMap` without losing the readibility.
+
+```swift
+let phoneNoValidation = validateNonEmpty("42123453")
+    .flatMap(validatePhoneNumber)
+    
+let emailValidation1 = validateNonEmpty("user@mail.com")
+    .flatMap(validateEmail)
+    
+let registerUser = .pure(curry(RegisterUserRequest.init))
+    <*> phoneNoValidation
+    <*> emailValidation
+    
+pirnt // .valid(RegisterUserRequest)
+```
+
 
 If you feels unfamilier with using `<*>` you can instead use `zip` `zip(with:)`.
 
